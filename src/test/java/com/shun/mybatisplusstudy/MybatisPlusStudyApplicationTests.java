@@ -24,7 +24,7 @@ class MybatisPlusStudyApplicationTests {
     @Test
     void addUser() {
         User user = new User();
-        user.setName("lisi2");
+        user.setName("东方");
         user.setAge(23);
         user.setEmail("12345@qq.com");
         userMapper.insert(user);
@@ -32,9 +32,8 @@ class MybatisPlusStudyApplicationTests {
 
     @Test
     void updateUser() {
-        User user = new User();
-        user.setId((long)2);
-        user.setAge(24);
+        User user = userMapper.selectById(1411105004960518145L);
+        user.setAge(200);
         userMapper.updateById(user);
     }
 

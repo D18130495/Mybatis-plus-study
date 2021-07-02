@@ -2,6 +2,7 @@ package com.shun.mybatisplusstudy.pojo;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.Version;
 
 import java.util.Date;
 
@@ -16,6 +17,10 @@ public class User {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;
 
     public User() {}
 

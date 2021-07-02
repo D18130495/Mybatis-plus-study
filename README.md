@@ -1,5 +1,5 @@
 # Mybatis-plus
-Official website: https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#spring-core
+Official website: https://baomidou.com/
 ### Primary key
 - AUTO INCREMENT @TableId(type = IdType.AUTO)
 - UUID @TableId(type = IdType.UUID)
@@ -30,6 +30,18 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 }
 ```
 
-### Lock
+### Locker
 - Pessimistic lock(Serial)
 - Optimistic lock(version) Grab tickets
+pojo
+``` java
+    @Version
+    private Integer version;
+```
+config
+``` java
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
+    }
+```
