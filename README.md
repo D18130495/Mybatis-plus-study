@@ -45,3 +45,42 @@ config
         return new OptimisticLockerInterceptor();
     }
 ```
+
+### Limit(Pagination)
+config
+``` java
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
+```
+
+``` java
+    void limit() {
+        Page<User> page = new Page<User>(1, 3);
+        userMapper.selectPage(page, null);
+
+        page.getCurrent();//current page
+        page.getRecords();//all data
+        page.getSize();//how many data per page
+        page.getTotal();//number of total records
+        page.getPages();//number of total pages
+
+        page.hasNext();//if has next page
+        page.hasPrevious();//if has next page
+    }
+```
+
+###
+pojo(must use deleted)
+``` java
+    @TableLogic
+    private Integer deleted;
+```
+config
+``` java
+    @Bean
+    public ISqlInjector sqlInjector() {
+        return new LogicSqlInjector();
+    }
+```
